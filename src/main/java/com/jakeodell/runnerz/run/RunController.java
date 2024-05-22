@@ -8,17 +8,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
+@RequestMapping("/api/runs")
 public class RunController {
 
     private final RunRepository runRepository;
 
     //Access RunRepository class already initialized by Spring. Found by @Repository
+    //Dependency Injection:
     public RunController(RunRepository runRepository) {
         this.runRepository = runRepository;
     }
 
-    @GetMapping("/api/runs")
+    @GetMapping("")
     List<Run> findAll() {
         return runRepository.findAll();
     }
+
+    @GetMapping("/api/runs/")
 }
